@@ -1,15 +1,23 @@
 import tkinter as tk
 
-
-    
+#set up class that inherits from tk.Label class but sets the specified parameters to their specified values (it works but I still dont understand how)
+class Square(tk.Label):
+    def __init__(self, text):
+        super().__init__(master=window, text=text, background='white', anchor='center', borderwidth=2, relief="solid", font=('arial', 60))
 
 window = tk.Tk()
 window.title('Chess Game')
 window.geometry('900x600')
 
+#instantiation of the created class that is meant to replace tk.Label
+a1 = Square('1')
+
+
+
 
 #define labels
-a1 = tk.Label(window, text='a1', background='white', anchor='center', borderwidth=2, relief="solid", font=('arial', 60))
+
+# a1 = tk.Label(window, text='a1', background='white', anchor='center', borderwidth=2, relief="solid", font=('arial', 60))
 a2 = tk.Label(window, text='a2', background='white', anchor='center', borderwidth=2, relief="solid", font=('arial', 60))
 a3 = tk.Label(window, text='a3', background='white', anchor='center', borderwidth=2, relief="solid", font=('arial', 60))
 
