@@ -15,8 +15,8 @@ window.geometry('900x600')
 squares = {
 
 #using instantiation of the Square class within a dictionary to define labels
-'a1' : Square('a1'), #, background='saddle brown')
-'a2' : Square('a2'), #, background='sandy brown')
+'a1' : Square('a1'), 
+'a2' : Square('a2'), 
 'a3' : Square('a3'),
 'a4' : Square('a4'),
 'a5' : Square('a5'),
@@ -90,7 +90,34 @@ squares = {
 }
 
 
+# for loop to create checkerboard coloring of the grid based on text values
+letter = 'abcdefgh'
+LetNum = 0
 
+EvenNumber = ['0', '2', '4', '6', '8'] 
+#used strings instead of integers because casting of .int(text[1]) gave me error
+
+for i in range(8):
+    num = 1
+    if str(LetNum) in EvenNumber:
+        for i in range(8):
+            print((LetNum))
+            # print(squares[f"{letter[LetNum]}{number}"].text[1])
+            if squares[f"{letter[LetNum]}{num}"].text[1] in EvenNumber:
+                squares[f"{letter[LetNum]}{num}"].configure(background='saddle brown')
+            else: 
+                squares[f"{letter[LetNum]}{num}"].configure(background='sandy brown')
+            num += 1
+    else:
+        for i in range(8):
+            print((LetNum))
+            # print(squares[f"{letter[LetNum]}{number}"].text[1])
+            if squares[f"{letter[LetNum]}{num}"].text[1] not in EvenNumber:
+                squares[f"{letter[LetNum]}{num}"].configure(background='saddle brown')
+            else: 
+                squares[f"{letter[LetNum]}{num}"].configure(background='sandy brown')
+            num += 1
+    LetNum += 1   
 
 
 
@@ -116,6 +143,7 @@ window.rowconfigure(6, weight=1)
 window.rowconfigure(7, weight=1)
 
 #place labels within grid, calls each label by accessing the Square object inside the dictionary
+#Column a, added left margin
 squares['a1'].grid(row = 0, column = 0, sticky='nsew', padx=(100,0))
 squares['a2'].grid(row = 1, column = 0, sticky='nsew', padx=(100,0))
 squares['a3'].grid(row = 2, column = 0, sticky='nsew', padx=(100,0))
@@ -185,7 +213,7 @@ squares['g6'].grid(row=5, column=6, sticky='nsew')
 squares['g7'].grid(row=6, column=6, sticky='nsew')
 squares['g8'].grid(row=7, column=6, sticky='nsew')
 
-#Columnh
+#Columnh, added right margin
 squares['h2'].grid(row=1, column=7, sticky='nsew', padx=(0, 100))
 squares['h3'].grid(row=2, column=7, sticky='nsew', padx=(0, 100))
 squares['h4'].grid(row=3, column=7, sticky='nsew', padx=(0, 100))
